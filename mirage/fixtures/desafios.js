@@ -46,7 +46,14 @@ export default [
     consignaInicial: 'El bloque Repetir permite elegir la cantidad de veces que se desea repetir una secuencia de acciones. Esto se llama "Repetición simple".',
     escena: 'NoMeCansoDeSaltar',
     debeFelicitarse: true,
-    bloques: ['SaltarHablando', 'Procedimiento', 'Repetir']
+    bloques: ['SaltarHablando', 'Procedimiento', 'Repetir'],
+    expectativas: [
+      {
+        "name": "Usa Repetir",
+        "binding" : "*",
+        "inspection" : "UsesRepeat"
+      }
+    ]
   },
   {
     id: 4,
@@ -151,7 +158,13 @@ export default [
     consignaInicial: 'El bloque "Si... Entonces" ejecuta una secuencia de instrucciones solamente cuando la condición es verdadera. Esto se llama "alternativa condicional".',
     escena: 'ElMonoYLasBananas',
     debeFelicitarse: true,
-    bloques: ['ComerBanana', 'AvanzarMono', 'TocandoBanana', 'Repetir', 'Procedimiento', 'Si']
+    bloques: ['ComerBanana', 'AvanzarMono', 'TocandoBanana', 'Repetir', 'Procedimiento', 'Si'],
+    expectativas: [
+      {
+        "binding" : "*",
+        "inspection" : "UsesIf"
+      }
+    ]
   },
   {
     id: 14,
@@ -1825,6 +1838,12 @@ export default [
       'Si',
       'HayChurrasco'
     ],
+    expectativas: [
+      {
+        "binding" : "*",
+        "inspection" : "UsesIf"
+      }
+    ]
   },
   {
     id: 243,

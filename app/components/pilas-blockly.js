@@ -27,6 +27,7 @@ export default Component.extend({
 
   highlighter: service(),
   availableBlocksValidator: service(),
+  pilasMulang: service(),
 
   bloques: [],
   codigoActualEnFormatoXML: '',     // se actualiza automáticamente al modificar el workspace.
@@ -65,6 +66,10 @@ export default Component.extend({
 
   estoyEnMoodle: computed('modoAlumno', 'modoDocente', function () {
     return this.modoAlumno || this.modoDocente;
+  }),
+  
+  tieneExpectativas: computed('modelActividad', function () {
+    return this.modelActividad.get('expectativas')
   }),
 
   didInsertElement() {
@@ -310,6 +315,10 @@ export default Component.extend({
 
       if (this.debeMostrarFinDeDesafio) {
         if (this.pilas.estaResueltoElProblema() && this.modelActividad.get('debeFelicitarse')) {
+          // let mulangResult = this.pilasMulang.analyze(Blockly.mainWorkspace.getTopBlocks()[0], this.modelActividad.get('expectativas'))
+          // console.log({mulangResult})
+          // let mulangExpectation = mulangResult.expectationResults.every(({result}) => result)
+          // this.set("mulangExpectation", mulangExpectation)
           this.send('abrirFinDesafio');
         }
       }
